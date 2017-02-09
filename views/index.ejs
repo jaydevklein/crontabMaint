@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head><link rel="stylesheet" type="text/css" href="css/style.css">
+	</head>
+<body>
+	<h1>Crontab Maintenance</h1>
+	<h2>Main Menu</h2>
+	<p>Account: <%= user%></p>
+	<br>
+	<p class="red"><%= message %></p>
+	<form action="/listjobs"> 
+		<input type="submit" class="button" value="Job Listing" /> 
+	</form>
+	<form action="/addjob"> 
+		<input type="submit" class="button" value="Add Job" /> 
+	</form>
+</body>
+</html>

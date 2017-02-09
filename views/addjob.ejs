@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+	<head><link rel="stylesheet" type="text/css" href="css/style.css"></head>
+<body id="main_body" >
+	
+	<img id="top" src="images/top.png" alt="">
+	<div id="form_container">
+	
+		<h1>Create a crontab job</h1>
+		<form id="form_10473" class="appnitro"  method="post" action="/addjob">
+					<div class="form_description">
+			<h2>Create a crontab job</h2>
+			<p>Account: <%= user%></p>
+			<p>Use this form to schedule a job in cron</p>
+			<p>For help with crontab syntax click <a href="https://crontab.guru" target="_blank">here</a></p>
+		</div>						
+			<ul >
+			
+					<li id="li_1" >
+		<label class="description" for="p_command">Command name </label>
+		<div>
+			<input id="p_command" name="p_command" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div><p class="guidelines" id="guide_1"><small>Fully qualified path to script or Linux command</small></p> 
+		</li>		<li id="li_2" >
+		<label class="description" for="p_minute">Minute </label>
+		<div>
+		<select class="element select small" id="p_minute" name="p_minute"> 
+			<option value="*" selected="selected">*</option>
+<option value="0" >0</option>
+<option value="1" >1</option>
+<option value="2" >2</option>
+<option value="3" >3</option>
+<option value="4" >4</option>
+<option value="5" >5</option>
+<option value="6" >6</option>
+<option value="7" >7</option>
+<option value="8" >8</option>
+<option value="9" >9</option>
+<option value="10" >10</option>
+<option value="11" >11</option>
+<option value="12" >12</option>
+<option value="13" >13</option>
+<option value="14" >14</option>
+<option value="15" >15</option>
+<option value="16" >16</option>
+<option value="17" >17</option>
+<option value="18" >18</option>
+<option value="19" >19</option>
+<option value="20" >20</option>
+<option value="21" >21</option>
+<option value="22" >22</option>
+<option value="23" >23</option>
+<option value="24" >24</option>
+<option value="25" >25</option>
+<option value="26" >26</option>
+<option value="27" >27</option>
+<option value="28" >28</option>
+<option value="29" >29</option>
+<option value="30" >30</option>
+<option value="31" >31</option>
+<option value="32" >32</option>
+<option value="33" >33</option>
+<option value="34" >34</option>
+<option value="35" >35</option>
+<option value="36" >36</option>
+<option value="37" >37</option>
+<option value="38" >38</option>
+<option value="39" >39</option>
+<option value="40" >40</option>
+<option value="41" >41</option>
+<option value="42" >42</option>
+<option value="43" >43</option>
+<option value="44" >44</option>
+<option value="45" >45</option>
+<option value="46" >46</option>
+<option value="47" >47</option>
+<option value="48" >48</option>
+<option value="49" >49</option>
+<option value="50" >50</option>
+<option value="51" >51</option>
+<option value="52" >52</option>
+<option value="53" >53</option>
+<option value="54" >54</option>
+<option value="55" >55</option>
+<option value="56" >56</option>
+<option value="57" >57</option>
+<option value="58" >58</option>
+<option value="59" >59</option>
+
+		</select>
+		</div> 
+		</li>		<li id="li_3" >
+		<label class="description" for="p_hour">Hour </label>
+		<div>
+		<select class="element select small" id="p_hour" name="p_hour"> 
+			<option value="*" selected="selected">*</option>
+<option value="1" >1</option>
+<option value="2" >2</option>
+<option value="3" >3</option>
+<option value="4" >4</option>
+<option value="5" >5</option>
+<option value="6" >6</option>
+<option value="7" >7</option>
+<option value="9" >8</option>
+<option value="9" >9</option>
+<option value="10" >10</option>
+<option value="11" >11</option>
+<option value="12" >12</option>
+<option value="13" >13</option>
+<option value="14" >14</option>
+<option value="15" >15</option>
+<option value="16" >16</option>
+<option value="17" >17</option>
+<option value="18" >18</option>
+<option value="19" >19</option>
+<option value="20" >20</option>
+<option value="21" >21</option>
+<option value="22" >22</option>
+<option value="23" >23</option>
+
+		</select>
+		</div> 
+		</li>		<li id="li_4" >
+		<label class="description" for="p_dayOfMonth">Day of Month </label>
+		<div>
+		<select class="element select small" id="p_dayOfMonth" name="p_dayOfMonth"> 
+			<option value="*" selected="selected">*</option>
+<option value="1" >1</option>
+<option value="2" >2</option>
+<option value="3" >3</option>
+<option value="4" >4</option>
+<option value="5" >5</option>
+<option value="6" >6</option>
+<option value="7" >7</option>
+<option value="9" >8</option>
+<option value="9" >9</option>
+<option value="10" >10</option>
+<option value="11" >11</option>
+<option value="12" >12</option>
+<option value="13" >13</option>
+<option value="14" >14</option>
+<option value="15" >15</option>
+<option value="16" >16</option>
+<option value="17" >17</option>
+<option value="18" >18</option>
+<option value="19" >19</option>
+<option value="20" >20</option>
+<option value="21" >21</option>
+<option value="22" >22</option>
+<option value="23" >23</option>
+<option value="24" >24</option>
+<option value="25" >25</option>
+<option value="26" >26</option>
+<option value="27" >27</option>
+<option value="28" >28</option>
+<option value="29" >29</option>
+<option value="30" >30</option>
+<option value="31" >31</option>
+
+		</select>
+		</div> 
+		</li>		<li id="li_5" >
+		<label class="description" for="p_month">Month </label>
+		<div>
+		<select class="element select small" id="p_month" name="p_month"> 
+			<option value="*" selected="selected">*</option>
+<option value="jan" >January</option>
+<option value="feb" >February</option>
+<option value="mar" >March</option>
+<option value="apr" >April</option>
+<option value="may" >May</option>
+<option value="jun" >June</option>
+<option value="jul" >July</option>
+<option value="aug" >August</option>
+<option value="sep" >September</option>
+<option value="oct" >October</option>
+<option value="nov" >November</option>
+<option value="dec" >December</option>
+
+		</select>
+		</div> 
+		</li>		<li id="li_6" >
+		<label class="description" for="p_dayOfWeek">Day of Week </label>
+		<div>
+		<select class="element select small" id="p_dayOfWeek" name="p_dayOfWeek"> 
+			<option value="*" selected="selected">*</option>
+<option value="sun" >Sunday</option>
+<option value="mon" >Monday</option>
+<option value="tue" >Tuesday</option>
+<option value="wed" >Wednesday</option>
+<option value="thr" >Thursday</option>
+<option value="fri" >Friday</option>
+<option value="sat" >Saturday</option>
+
+		</select>
+		</div> 
+		</li>		<li id="li_7" >
+		<label class="description" for="p_customSchedule">Custom Schedule </label>
+		<div>
+			<input id="p_customSchedule" name="p_customSchedule" class="element text small" type="text" maxlength="255" value=""/> 
+		</div><p class="guidelines" id="guide_7"><small>minute hour day-of-month month day-of-week</small></p> 
+		</li>
+			
+					<li class="buttons">
+			    <input type="hidden" name="form_id" value="10473" />
+			    
+				<input id="saveForm" class="button_text" type="submit" name="submit" value="Add Job" />
+		</li>
+			</ul>
+		</form>	
+		<div id="footer">
+		</div>
+	</div>
+	<img id="bottom" src="images/bottom.png" alt="">
+	</body>
+</html>
