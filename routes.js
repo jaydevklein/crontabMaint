@@ -22,27 +22,8 @@ exports.createNewJob = function (req, res, next) {
 	var customSchedule = req.body.p_customSchedule;
 	//var special = req.body.p_special;
 	var parameters, message;
-
-/*
-	function saveCrontab (crontab, command, parameters, message) {
-
-			crontab.save(function(err, crontab) {
-				if (err) {
-					message = 'Failed to save crontab. ' + err
-					console.log(message)
-				}
-				else {
-					message = 'New job scheduled:' + command + ' ' + parameters
-					console.log(message)
-				}
-			})
-			console.log(message + '-from function')
-			return message 
-		}
-*/
 	
 	parameters = customSchedule ? customSchedule : parameters = minute + " " + hour + " " + dayOfMonth + " " + month + " " + dayOfWeek //+ " " + special
-	//console.log(parameters)
 
 	crontabModule.load(function(err, crontab) {
 		if (err) failureCallback(err);
@@ -134,7 +115,6 @@ exports.getJobs = function(req, res, next) {
 					dayOfMonth = job.dom().toString();
 
 					var checkboxValue = "'" + minute + ' ' + hour + ' ' + dayOfMonth + ' ' + month + ' ' + dayOfWeek + ' ' + command + "'";
-					//console.log(checkboxValue);
 					
 					joblisthtml = joblisthtml + '<tr> <td>' + '<input type="checkbox" name="jobEntry[]" value='+checkboxValue+'></td>' + '<td>' +
 					command + '</td> <td>' +
@@ -166,11 +146,7 @@ exports.removeJob = function (req, res, next) {
 
 	crontabModule.load(function(err, crontab) {
 		var jobEntries = req.body.jobEntry;
-		/*
-			for (i=0; i<req.body.jobEntry.length; i++) {
-				console.log(req.body.jobEntry[i])
-			}
-		*/
+		
 		jobEntries.forEach(function(jobEntry){
 			console.log('Job to delete: ' + jobEntry);
 		
