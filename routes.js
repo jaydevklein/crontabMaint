@@ -147,12 +147,12 @@ exports.removeJob = function (req, res, next) {
 	crontabModule.load(function(err, crontab) {
 		var jobEntries = req.body.jobEntry;
 		
-		jobEntries.forEach(function(jobEntry){
+		jobEntries.forEach(function(jobEntry) {
 			console.log('Job to delete: ' + jobEntry);
 		
 			var jobs = crontab.jobs();
 			jobs.forEach(function(job) {
-				 if (job.toString() === jobEntry.toString()) {
+				if (job.toString() === jobEntry.toString()) {
 				   	console.log('Job will be deleted: ' + job.toString());
 			    	crontab.remove(job);
 
@@ -164,14 +164,13 @@ exports.removeJob = function (req, res, next) {
 							res.send(err);
 							next();
 						}
-					})
+					});
 					console.log('Job removed:' + jobEntry);
 			    }
-		  	})
-		})
+		  	});
+		});
 
 		res.render('index',{user: user, message: 'Job(s) removed: ' + jobEntries});
 		next();
-	})
-
+	});
 };
