@@ -4,12 +4,12 @@ var user = process.env.USER;
 
 exports.index = function (req, res, next) {
 	res.render('index',{user: user, message: ''});
-	next();
+	return next();
 };
 
 exports.getAddJob = function (req, res, next) {
 	res.render('addjob',{user: user});
-	next();
+	return next();
 };
 
 exports.createNewJob = function (req, res, next) {
@@ -37,14 +37,14 @@ exports.createNewJob = function (req, res, next) {
 		console.log(data);
 		res.status(200);
 		res.render('index', {user: user, message: data});
-		next();
+		return next();
 	}
 
 	var failureCallback = function(data) {
 		console.error(data);
 		res.status(401);
 		res.render('index', {user: user, message: data});
-		next();
+		return next();
 	}
 	
 	function saveCronJob(crontab) {
@@ -80,7 +80,7 @@ exports.getJobs = function(req, res, next) {
 			console.error(err);
 			res.status(500);
 			res.send(err);
-			next();
+			return next();
 		} 
 		else {
 			console.log('Listing jobs');
@@ -132,7 +132,7 @@ exports.getJobs = function(req, res, next) {
 
 			res.status(200);
 			res.send(joblisthtml);
-			next();
+			return next();
 		}
 	});
 };
@@ -141,7 +141,7 @@ exports.removeJob = function (req, res, next) {
 
 	if (req.body.jobEntry === undefined) {
 		res.render('index',{user: user, message: 'No jobs to delete'});
-		next();
+		return next();
 	}
 
 	crontabModule.load(function(err, crontab) {
@@ -162,7 +162,7 @@ exports.removeJob = function (req, res, next) {
 							console.error(err);
 							res.status(500);
 							res.send(err);
-							next();
+							return next();
 						}
 					});
 					console.log('Job removed:' + jobEntry);
@@ -171,6 +171,6 @@ exports.removeJob = function (req, res, next) {
 		});
 
 		res.render('index',{user: user, message: 'Job(s) removed: ' + jobEntries});
-		next();
+		return next();
 	});
 };
