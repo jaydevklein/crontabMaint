@@ -97,11 +97,12 @@ exports.getJobs = function(req, res, next) {
 			var jobs = crontab.jobs();
 
 			var joblisthtml = '<!DOCTYPE html><html><head><link rel="stylesheet" type="text/css" href="css/style.css"></head><body>';
+			joblisthtml = joblisthtml + '<a href="/">Home</a>'
 			joblisthtml = joblisthtml + '<form id="form_remove" class="appnitro"  method="post" action="/removejob">';
 			joblisthtml = joblisthtml + '<h1>Crontab Maintenance</h1><h2>Crontab Listing</h2><p>Account: '+ user +'</p>';
 
 			joblisthtml = joblisthtml + '<div style="overflow-x:auto;"><table>';
-			joblisthtml = joblisthtml + '<tr> <th></th><th>Command</th> <th>Minute</th> <th>Hour</th> <th>Day of Month</th> <th>Month</th> <th>Day of Week</th> </tr>';
+			joblisthtml = joblisthtml + '<tr> <th></th> <th>Command</th> <th>Minute</th> <th>Hour</th> <th>Day of Month</th> <th>Month</th> <th>Day of Week</th> </tr>';
 
 			jobs.forEach(function(job) {
 				if (job) {
