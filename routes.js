@@ -50,6 +50,10 @@ exports.createNewJob = function (req, res, next) {
 	function saveCronJob(crontab) {
 		return new Promise(function(resolve, reject) {
 			// create with string expression 
+			if (command === null || command == "") {
+				message = 'Invalid command. Failed to create job.'
+				reject(message);
+			}
 			var job = crontab.create(command, parameters);
 			if (job === null) {
 				message = 'Invalid crontab entry. Failed to create job. Check parameters. ' + command + ' ' + parameters
@@ -119,11 +123,11 @@ exports.getJobs = function(req, res, next) {
 					
 					joblisthtml = joblisthtml + '<tr> <td>' + '<input type="checkbox" name="jobEntry[]" value='+checkboxValue+'></td>' + '<td>' +
 					command + '</td> <td>' +
-					minute + '</td> <td>' +
-					hour + '</td> <td>' +
-					dayOfMonth + '</td> <td>' +
-					month + '</td> <td>' +
-					dayOfWeek + '</td> </tr>';
+					(minute == "*" ? "All" : minute) + '</td> <td>' +
+					(hour == "*" ? "All" : hour) + '</td> <td>' +
+					(dayOfMonth == "*" ? "All" : dayOfMonth)+ '</td> <td>' +
+					monthLookup + '</td> <td>' +
+					dayOfWeekLookup + '</td> </tr>';
 				}
 			});
 

@@ -30,7 +30,9 @@ app.post('/removejob', routes.removeJob);
 // Consider using a more RESTful approach for your endpoints:
 
 app.get('/jobs', routes.getJobs);
+app.get('/jobs/:id', routes.getJob);
 app.post('/jobs', routes.createNewJob);
+app.put('/jobs/:id', routes.updateJob);
 app.delete('/jobs', routes.removeJob);
 
 */

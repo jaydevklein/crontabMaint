@@ -1,13 +1,27 @@
 <!DOCTYPE html>
 <html>
 	<head><link rel="stylesheet" type="text/css" href="css/style.css"></head>
-<body id="main_body" >
+<body id="main_body" onload='setFocusToTextBox()'>
+<script>
+function setFocusToTextBox(){
+    document.getElementById("p_command").focus();
+}
+
+function validateForm() {
+    var x = document.forms["form_10473"]["p_command"].value;
+    if (x == "") {
+        alert("Command must be entered.");
+        setFocusToTextBox();
+        return false;
+    }
+}
+</script>
 	
 	<a href="/">Home</a>
 	<div id="form_container">
 	
 		<h1>Create a crontab job</h1>
-		<form id="form_10473" class="appnitro"  method="post" action="/addjob">
+		<form id="form_10473" class="appnitro"  method="post" action="/addjob" onsubmit="return validateForm()">
 					<div class="form_description">
 			<h2>Create a crontab job</h2>
 			<p>Account: <%= user%></p>
